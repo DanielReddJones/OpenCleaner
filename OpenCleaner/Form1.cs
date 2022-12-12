@@ -1,10 +1,23 @@
 namespace OpenCleaner
 {
-    public partial class Form1 : Form
+    public partial class OpenCleaner : Form
     {
-        public Form1()
+        //counter variable
+        int i = 0;
+        public OpenCleaner()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            i = i + 1;
+            if (i == 1) {
+                InstLabel.Text = "Opening Task Manager.\n Choose what startup programs that you want to disable.";
+            } 
+
+            
         }
     }
 }
