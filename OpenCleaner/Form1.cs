@@ -16,7 +16,7 @@ namespace OpenCleaner
     {
         //counter variable
         int i = 0;
-        bool TruFls;
+  
         public OpenCleaner()
         {
             InitializeComponent();
@@ -31,25 +31,22 @@ namespace OpenCleaner
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Visible = false;
-
-            CleanupMethod();
-            
+           
+            CleanupMethod();  
         }
 
+
+        //list of tasks to clean up PC
         private void CleanupMethod()
         {
             i = i + 1;
             if (i == 1)
             {
-                InstLabel.Text = "Do you wish to disable all startup programs? Press yes to disable all startup programs and no to open task manager startup programs tag.";
-
-                if (TruFls == true)
-                {
-                    InstLabel.Text = "disabling startup programs.";
-
-                }
+                InstLabel.Text = "Disable startup programs? Pressing no will open task manager and let you disable programs manually.";
+                YesTask.Visible = true;
+                NoTask.Visible = true;
             }
-
+ 
         }
 
         //Checks if program is being run as administrator. Returns true/false.
@@ -60,14 +57,17 @@ namespace OpenCleaner
             return principal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void YesTask_Click(object sender, EventArgs e)
         {
-            TruFls = true;
+
+            InstLabel.Text = "erased startup programs.";
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void NoTask_Click(object sender, EventArgs e)
         {
-            TruFls = false;
+            InstLabel.Text = "Opening Task Manager.";
         }
     }
 }
