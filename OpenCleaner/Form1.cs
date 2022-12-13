@@ -1,7 +1,7 @@
 /*
  * Author: Daniel Jones
  * Operating system: Windows 10 Pro 10.0.19045
- * Last modified: 12/12/2022
+ * Last modified: 12/12/2022 7:52 PM
  * IDE/.net: Visual Studio 2022 .net 6.0
  * Purpose: Checks for common optimization configurations and changes upon user request.
  */
