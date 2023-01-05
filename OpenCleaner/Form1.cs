@@ -8,6 +8,7 @@
 
 
 
+using System.Diagnostics;
 using System.Security.Principal;
 
 namespace OpenCleaner
@@ -23,16 +24,27 @@ namespace OpenCleaner
             if (IsAdministrator() == false)
             {
                 InstLabel.Text = "Must be run as administrator.";
-                button1.Visible = false;
+                contButton.Visible = false;
             }
             
             }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void contButton_Click(object sender, EventArgs e)
         {
-            button1.Visible = false;
-           
-            CleanupMethod();  
+            switch (i) {
+                case 0:
+                    contButton.Visible = false;
+                    contButton.Text = "continue";
+                    CleanupMethod();
+                    break;
+                case 1:
+                    i = i + 1;
+                    InstLabel.Text = "disable unneeded visual effects?";
+                    contButton.Visible = false;
+                    YesTask.Visible = true;
+                    NoTask.Visible = true;
+                    break;
+            }
         }
 
 
@@ -60,14 +72,38 @@ namespace OpenCleaner
 
         private void YesTask_Click(object sender, EventArgs e)
         {
-
-            InstLabel.Text = "erased startup programs.";
-
+            switch(i)
+            {
+                case 1:
+                    InstLabel.Text = "erased startup programs.";
+                    
+                    break;
+                case 2:
+                    InstLabel.Text = "opening visual effects";
+                    break;
+                    
+            }
         }
 
         private void NoTask_Click(object sender, EventArgs e)
         {
-            InstLabel.Text = "Opening Task Manager.";
+            switch (i)
+            {
+                case 1:  InstLabel.Text = "Opening Task Manager. Click \"more details\" at the bottom and select the startup tasks tab. Disable what you do not need." +
+                        "When you are done, press continue.";
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                    startInfo.FileName = "cmd.exe";
+                    startInfo.Arguments = "/C taskmgr.exe";
+                    process.StartInfo = startInfo;
+                    process.Start();
+                    YesTask.Visible = false;
+                    NoTask.Visible = false;
+                    contButton.Visible = true;
+                    
+                    break;
+            }
         }
     }
 }

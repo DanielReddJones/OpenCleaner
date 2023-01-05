@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.contButton = new System.Windows.Forms.Button();
             this.InstLabel = new System.Windows.Forms.Label();
             this.YesTask = new System.Windows.Forms.Button();
             this.NoTask = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // contButton
             // 
-            this.button1.Location = new System.Drawing.Point(338, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Optimize";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.contButton.Location = new System.Drawing.Point(338, 325);
+            this.contButton.Name = "contButton";
+            this.contButton.Size = new System.Drawing.Size(75, 23);
+            this.contButton.TabIndex = 0;
+            this.contButton.Text = "Optimize";
+            this.contButton.UseVisualStyleBackColor = true;
+            this.contButton.Click += new System.EventHandler(this.contButton_Click);
             // 
             // InstLabel
             // 
@@ -84,7 +84,7 @@
             this.Controls.Add(this.NoTask);
             this.Controls.Add(this.YesTask);
             this.Controls.Add(this.InstLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.contButton);
             this.Name = "OpenCleaner";
             this.Text = "Open Cleaner";
             this.ResumeLayout(false);
@@ -93,7 +93,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button contButton;
         private Label InstLabel;
         private Button YesTask;
         private Button NoTask;
